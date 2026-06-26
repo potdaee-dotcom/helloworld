@@ -57,11 +57,11 @@ export default function LadderCanvas({
       if (!ctx || !canvas) return;
       ctx.clearRect(0, 0, W, H);
 
-      // Vertical lines
+      // Vertical lines — always gray; the animated path draws color on top
       for (let c = 0; c < n; c++) {
         ctx.beginPath();
-        ctx.strokeStyle = activeParticipants.has(c) ? COLORS[c % COLORS.length] : "#d1d5db";
-        ctx.lineWidth = activeParticipants.has(c) ? 3 : 2;
+        ctx.strokeStyle = "#d1d5db";
+        ctx.lineWidth = 2;
         ctx.moveTo(colX(c), rowY(0));
         ctx.lineTo(colX(c), rowY(rows));
         ctx.stroke();
